@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Users List</h1>
+        <ul id="usersList"> </ul>
+    </div>
+    <script>
+        var users = JSON.parse(localStorage.getItem('users'));
+
+        var userList = document.getElementById('usersList');
+
+        users.forEach(function(user){
+            var listItem = document.createElement('li');
+            listItem.textContent = "UserName : "+user.username + ", Email : "+user.email;
+            userList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-info {
+            margin-bottom: 10px;
+        }
+
+        .user-info strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User List</h1>
+        <ul id="userList"></ul>
+    </div>
+
+    <script>
+        // Retrieve users array from localStorage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Display each user in the list
+        var userList = document.getElementById("userList");
+        users.forEach(function(user) {
+            var listItem = document.createElement("li");
+            var userInfo = document.createElement("div");
+            userInfo.classList.add("user-info");
+
+            var usernameStrong = document.createElement("strong");
+            usernameStrong.textContent = "Username: ";
+            var usernameSpan = document.createElement("span");
+            usernameSpan.textContent = user.username;
+            userInfo.appendChild(usernameStrong);
+            userInfo.appendChild(usernameSpan);
+            userInfo.appendChild(document.createElement("br"));
+
+            var emailStrong = document.createElement("strong");
+            emailStrong.textContent = "Email: ";
+            var emailSpan = document.createElement("span");
+            emailSpan.textContent = user.email;
+            userInfo.appendChild(emailStrong);
+            userInfo.appendChild(emailSpan);
+
+            listItem.appendChild(userInfo);
+            userList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html> -->
